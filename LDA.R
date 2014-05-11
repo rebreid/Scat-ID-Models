@@ -163,9 +163,9 @@ ldaTestPred <- predict(Scatlda, testData)
 names(ldaTestPred)
 head(ldaTestPred$class)
 head(ldaTestPred$posterior)
-testData$LDAprobCoy <- ldaTestPred$posterior[,"coyote"] #probability that a scat in the trainData is identified by the model as coyote
-testData$LDAprobBob <- ldaTestPred$posterior[,"bobcat"] #probability that a scat in the trainData is identified by the model as bobcat
-testData$LDAprobFox <- ldaTestPred$posterior[,"gray fox"] #probability that a scat in the trainData is identified by the model as gray fox
+testData$LDAprobCoy <- ldaTestPred$posterior[,"coyote"] #probability that a scat in the testData is identified by the model as coyote
+testData$LDAprobBob <- ldaTestPred$posterior[,"bobcat"] #probability that a scat in the testData is identified by the model as bobcat
+testData$LDAprobFox <- ldaTestPred$posterior[,"gray fox"] #probability that a scat in the testData is identified by the model as gray fox
 
 #Calculate the confusion matrix for the test data
 confusionMatrix(data = ldaTestPred$class, reference = testData$Species)
